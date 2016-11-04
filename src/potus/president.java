@@ -7,8 +7,25 @@ public class president {
 	private int startYear;
 	private int endYear;
 	private String party;
-	
-	
+	/*
+	First	
+	Middle
+	Last
+	Years in office
+	Year first inaugurated	
+	Age at inauguration	
+	State elected from	
+	# of electoral votes	 
+	# of popular votes 	 
+	National total votes 	
+	Total electoral votes	
+	Rating points	
+	Political Party	
+	Occupation	
+	College	
+	% electoral	
+	% popular
+	*/
 	public String getFirstName() {
 		return firstName;
 	}
