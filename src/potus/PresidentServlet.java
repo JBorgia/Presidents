@@ -14,7 +14,7 @@ public class PresidentServlet extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PresidentBean listPres = new PresidentBean();
+		PresidentFileDAO listPres = new PresidentFileDAO();
 		
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
