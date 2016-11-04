@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1>President Crap</h1>
+Term Number: <input type="text">
 <div>President Information</div>
 <button name="submit" value="next">Next</button>
 <button name="submit" value="back">Prev</button>
