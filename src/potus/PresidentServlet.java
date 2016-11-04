@@ -14,12 +14,11 @@ public class PresidentServlet extends HttpServlet {
        
     
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		President president = req.getParameter("President");
-		
+		PresidentBean listPres = new PresidentBean();
 		
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
-		req.setAttribute("President", president);
+		req.setAttribute("President", listPres);
 		
 		dispatcher.forward(req, resp);
 	}
