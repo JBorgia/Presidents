@@ -7,7 +7,7 @@ public class President {
 	private int inaugYear;
 	private int yearsInOffice;
 	private int endYear;
-	private int ageAtInAug;
+	private int ageAtInaug;
 	private String stateElected;
 	private int electoralVotes;
 	private int popularVotes;
@@ -31,7 +31,7 @@ public class President {
 		this.inaugYear = inaugYear;
 		this.yearsInOffice = yearsInOffice;
 		this.endYear = endYear;
-		this.ageAtInAug = ageAtInAug;
+		this.ageAtInaug = ageAtInAug;
 		this.stateElected = stateElected;
 		this.electoralVotes = electoralVotes;
 		this.popularVotes = popularVotes;
@@ -88,10 +88,10 @@ public class President {
 		this.yearsInOffice = yearsInOffice;
 	}
 	public int getAgeAtInAug() {
-		return ageAtInAug;
+		return ageAtInaug;
 	}
 	public void setAgeAtInAug(int ageAtInAug) {
-		this.ageAtInAug = ageAtInAug;
+		this.ageAtInaug = ageAtInAug;
 	}
 	public String getStateElected() {
 		return stateElected;
