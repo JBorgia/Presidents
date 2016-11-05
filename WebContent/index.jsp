@@ -11,13 +11,15 @@
 <body>
 <h1>President Crap</h1>
 <form action="index.do" method="GET">
-Term Number: <input type="text">
+Term Number: <input type="text" name="presNum">
 <div>President Information</div>
 <button name="submit" value="next">Next</button>
 <button name="submit" value="back">Prev</button>
+<input type="submit">
 </form>
-
-<p>${President[1]}</p>
+<%-- 
+<p>${President.allPresidents[1]}</p> --%>
+<p>${AllPresident[1]}</p>
 
 </body>
 </html>

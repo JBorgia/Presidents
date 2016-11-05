@@ -10,22 +10,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
+@SuppressWarnings("serial")
 public class PresidentServlet extends HttpServlet {
     private PresidentDAO presidentDAO;
-    @Override
+    
     public void init() throws ServletException {
-        presidentDAO = new PresidentFileDAO(getServletContext());
-        System.out.println("init");
+    	ServletContext context = getServletContext();
+        presidentDAO = new PresidentFileDAO(context);
+		context.setAttribute("President", presidentDAO);
+		context.setAttribute("AllPresident", presidentDAO.getAllPresidents());
+        
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        PresidentFileDAO listPres = new PresidentFileDAO(getServletContext());
 //        PresidentFileDAO listPres = new PresidentFileDAO();
-        
-    	System.out.println("doget");
-        ServletContext context = getServletContext();
+
+		ServletContext context = getServletContext();
+//		PresidentDAO presidentDAO = (PresidentDAO)context.getAttribute("President");
+		Integer preNum = (Integer)context.getAttribute("presNum");
+		
         RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
-        req.setAttribute("President", presidentDAO.getAllPresidents());
+        req.setAttribute("President", presidentDAO);
+        req.setAttribute("AllPresident", presidentDAO.getAllPresidents());
         
         dispatcher.forward(req, resp);
     }

@@ -78,6 +78,14 @@ public class PresidentFileDAO implements PresidentDAO {
 		return presList.get(presNum);
 	}
 	
+	public President getNext(int presNum){
+		return presList.get(presNum);
+	}
+	
+	public President getPrev(int presNum){
+		return presList.get(presNum);
+	}
+	
 	public List<President> getAllPresidents() {
 		return presList;
 	}
