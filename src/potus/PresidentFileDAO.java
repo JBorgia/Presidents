@@ -13,15 +13,15 @@ public class PresidentFileDAO implements PresidentDAO {
 	private ServletContext servletContext;
 	private List<President> presList ;
 
+	public PresidentFileDAO(){
+	}
+
 	public PresidentFileDAO(ServletContext context) {
 		servletContext = context;
 		presList = new ArrayList<>();
 		loadPresidentsFromFile();
 	}
 
-	public PresidentFileDAO(){
-		
-	}
 	private void loadPresidentsFromFile() {
 		// Retrieve an input stream from the servlet context
 		// rather than directly from the file system
@@ -57,6 +57,14 @@ public class PresidentFileDAO implements PresidentDAO {
 		} catch (Exception e) {
 			System.err.println(e);
 		}
+	}
+
+	public President getPresident(int presNum){
+		return presList.get(presNum);
+	}
+	
+	public List<President> getAllPresidents() {
+		return presList;
 	}
 
 }

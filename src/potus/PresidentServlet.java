@@ -18,12 +18,12 @@ public class PresidentServlet extends HttpServlet {
     	 presidentDAO = new PresidentFileDAO(getServletContext());
      }
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PresidentFileDAO listPres = new PresidentFileDAO(getServletContext());
+//		PresidentFileDAO listPres = new PresidentFileDAO(getServletContext());
 //		PresidentFileDAO listPres = new PresidentFileDAO();
 		
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
-		req.setAttribute("President", listPres);
+		req.setAttribute("President", presidentDAO);
 		
 		dispatcher.forward(req, resp);
 	}
