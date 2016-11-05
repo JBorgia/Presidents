@@ -10,11 +10,13 @@
 </head>
 <body>
 <h1>President Crap</h1>
+<form action="index" method="GET">
 Term Number: <input type="text">
 <div>President Information</div>
 <button name="submit" value="next">Next</button>
 <button name="submit" value="back">Prev</button>
+</form>
 <p>${President[1]}</p>
-<p>${length}</p>
+
 </body>
 </html>
