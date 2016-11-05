@@ -22,12 +22,19 @@ public class PresidentServlet extends HttpServlet {
         
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        PresidentFileDAO listPres = new PresidentFileDAO(getServletContext());
-//        PresidentFileDAO listPres = new PresidentFileDAO();
 
 		ServletContext context = getServletContext();
-//		PresidentDAO presidentDAO = (PresidentDAO)context.getAttribute("President");
-		Integer preNum = (Integer)context.getAttribute("presNum");
+		Integer presNum = (Integer)context.getAttribute("presNum");
+		String nav = (String)context.getAttribute("submit");
+		if(presNum == null){
+			presNum=0;
+		}
+		
+		if(nav.equals("next")){
+			presidentDAO.getNext();
+		}else if(nav.equals("next")){
+			presidentDAO.getPrev();
+		}
 		
         RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
         req.setAttribute("President", presidentDAO);
