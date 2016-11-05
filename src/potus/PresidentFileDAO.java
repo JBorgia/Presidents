@@ -3,10 +3,25 @@ package potus;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
-private static final //CSV document
+import javax.servlet.ServletContext;
 
 public class PresidentFileDAO implements PresidentDAO {
+	private static final String filename = "WEB-INF/Presidents.csv";
+	private ServletContext servletContext;
+	private List<President> presList ;
+
+	public PresidentFileDAO(ServletContext context) {
+		servletContext = context;
+		presList = new ArrayList<>();
+		loadPresidentsFromFile();
+	}
+
+	public PresidentFileDAO(){
+		
+	}
 	private void loadPresidentsFromFile() {
 		// Retrieve an input stream from the servlet context
 		// rather than directly from the file system
@@ -34,8 +49,10 @@ public class PresidentFileDAO implements PresidentDAO {
 				double electoralPercentage = Double.parseDouble(presidents[16]);
 				double popularPercentage = Double.parseDouble(presidents[17]);
 				
-				
-				presidents.add(new President(symbol, name, price));
+				presList.add(new President(firstName, middleName, lastName, inaugYear, yearsInOffice,
+						endYear, ageAtInaug, stateElected, electoralVotes, popularVotes,
+						totalPopularVotes, totalElectoralVotes, ratingPoints, party, occupation,
+						college,  electoralPercentage, popularPercentage));
 			}
 		} catch (Exception e) {
 			System.err.println(e);

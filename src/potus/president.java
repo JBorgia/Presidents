@@ -4,8 +4,8 @@ public class President {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private int inaugYear;
-	private int yearsInOffice;
+	private double inaugYear;
+	private double yearsInOffice;
 	private int endYear;
 	private int ageAtInaug;
 	private String stateElected;
@@ -17,14 +17,17 @@ public class President {
 	private String party;
 	private String occupation;
 	private String college;
-	private int electoralPercentage;
-	private int popularPercentage;
+	private double electoralPercentage;
+	private double popularPercentage;
 	
 
-	public President(String firstName, String middleName, String lastName, int inaugYear, int yearsInOffice,
+	public President(){
+		
+	}
+	public President(String firstName, String middleName, String lastName, double inaugYear, double yearsInOffice,
 			int endYear, int ageAtInAug, String stateElected, int electoralVotes, int popularVotes,
 			int totalPopularVotes, int totalElectoralVotes, int ratingPoints, String party, String occupation,
-			String college, int electoralPercentage, int popularPercentage) {
+			String college, double electoralPercentage, double popularPercentage) {
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
@@ -75,13 +78,13 @@ public class President {
 	public void setParty(String party) {
 		this.party = party;
 	}
-	public int getInaugYear() {
+	public double getInaugYear() {
 		return inaugYear;
 	}
 	public void setInaugYear(int inaugYear) {
 		this.inaugYear = inaugYear;
 	}
-	public int getYearsInOffice() {
+	public double getYearsInOffice() {
 		return yearsInOffice;
 	}
 	public void setYearsInOffice(int yearsInOffice) {
@@ -141,17 +144,23 @@ public class President {
 	public void setCollege(String college) {
 		this.college = college;
 	}
-	public int getElectoralPercentage() {
+	public double getElectoralPercentage() {
 		return electoralPercentage;
 	}
 	public void setElectoralPercentage(int electoralPercentage) {
 		this.electoralPercentage = electoralPercentage;
 	}
-	public int getPopularPercentage() {
+	public double getPopularPercentage() {
 		return popularPercentage;
 	}
 	public void setPopularPercentage(int popularPercentage) {
 		this.popularPercentage = popularPercentage;
+	}
+	public int getAgeAtInaug() {
+		return ageAtInaug;
+	}
+	public void setAgeAtInaug(int ageAtInaug) {
+		this.ageAtInaug = ageAtInaug;
 	}
 	
 }

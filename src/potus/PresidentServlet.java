@@ -10,11 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 public class PresidentServlet extends HttpServlet {
-       
-    
+     private PresidentDAO presidentDAO;
+     @Override
+     public void init() throws ServletException {
+    	 presidentDAO = new PresidentFileDAO(getServletContext());
+     }
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PresidentBean listPres = new PresidentBean();
+		PresidentFileDAO listPres = new PresidentFileDAO(getServletContext());
 		
 		ServletContext context = getServletContext();
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
