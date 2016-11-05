@@ -16,11 +16,13 @@ public class PresidentServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         presidentDAO = new PresidentFileDAO(getServletContext());
+        System.out.println("init");
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        PresidentFileDAO listPres = new PresidentFileDAO(getServletContext());
 //        PresidentFileDAO listPres = new PresidentFileDAO();
         
+    	System.out.println("doget");
         ServletContext context = getServletContext();
         RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
         req.setAttribute("President", presidentDAO.getAllPresidents());
