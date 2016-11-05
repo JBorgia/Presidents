@@ -6,7 +6,7 @@ public class President {
 	private String lastName;
 	private double inaugYear;
 	private double yearsInOffice;
-	private int endYear;
+	private double endYear;
 	private int ageAtInaug;
 	private String stateElected;
 	private int electoralVotes;
@@ -17,17 +17,17 @@ public class President {
 	private String party;
 	private String occupation;
 	private String college;
-	private double electoralPercentage;
-	private double popularPercentage;
+	private String electoralPercentage;
+	private String popularPercentage;
 	
 
 	public President(){
 		
 	}
-	public President(String firstName, String middleName, String lastName, double inaugYear, double yearsInOffice,
-			int endYear, int ageAtInAug, String stateElected, int electoralVotes, int popularVotes,
+	public President(String firstName, String middleName, String lastName, double yearsInOffice, double inaugYear,
+			double endYear, int ageAtInAug, String stateElected, int electoralVotes, int popularVotes,
 			int totalPopularVotes, int totalElectoralVotes, int ratingPoints, String party, String occupation,
-			String college, double electoralPercentage, double popularPercentage) {
+			String college, String electoralPercentage, String popularPercentage) {
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
@@ -66,7 +66,7 @@ public class President {
 		this.lastName = lastName;
 	}
 
-	public int getEndYear() {
+	public double getEndYear() {
 		return endYear;
 	}
 	public void setEndYear(int endYear) {
@@ -144,16 +144,16 @@ public class President {
 	public void setCollege(String college) {
 		this.college = college;
 	}
-	public double getElectoralPercentage() {
+	public String getElectoralPercentage() {
 		return electoralPercentage;
 	}
-	public void setElectoralPercentage(int electoralPercentage) {
+	public void setElectoralPercentage(String electoralPercentage) {
 		this.electoralPercentage = electoralPercentage;
 	}
-	public double getPopularPercentage() {
+	public String getPopularPercentage() {
 		return popularPercentage;
 	}
-	public void setPopularPercentage(int popularPercentage) {
+	public void setPopularPercentage(String popularPercentage) {
 		this.popularPercentage = popularPercentage;
 	}
 	public int getAgeAtInaug() {

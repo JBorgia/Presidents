@@ -14,6 +14,7 @@ Term Number: <input type="text">
 <div>President Information</div>
 <button name="submit" value="next">Next</button>
 <button name="submit" value="back">Prev</button>
-<p>${President[1] }</p>
+<p>${President[1]}</p>
+<p>${length}</p>
 </body>
 </html>

@@ -1,6 +1,8 @@
 package potus;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -8,12 +10,15 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.apache.taglibs.standard.tag.common.core.ForEachSupport;
+
 public class PresidentFileDAO implements PresidentDAO {
 	private static final String filename = "WEB-INF/Presidents.csv";
 	private ServletContext servletContext;
-	private List<President> presList ;
+	private List<President> presList;
 
 	public PresidentFileDAO(){
+		this(null);
 	}
 
 	public PresidentFileDAO(ServletContext context) {
@@ -33,23 +38,23 @@ public class PresidentFileDAO implements PresidentDAO {
 				String firstName = presidents[0];
 				String middleName = presidents[1];
 				String lastName = presidents[2];
-				int inaugYear = Integer.parseInt(presidents[3]);
-				double yearsInOffice = Double.parseDouble(presidents[4]);
-				int endYear = Integer.parseInt(presidents[5]);
-				int ageAtInaug = Integer.parseInt(presidents[6]);
+				double yearsInOffice = Double.parseDouble(presidents[3].equals("") ? "0":presidents[3]);
+				double inaugYear = Double.parseDouble(presidents[4].equals("") ? "0":presidents[4]);
+				double endYear = Double.parseDouble(presidents[5].equals("") ? "0":presidents[5]);
+				int ageAtInaug = Integer.parseInt(presidents[6].equals("") ? "0":presidents[6]);
 				String stateElected = presidents[7];
-				int electoralVotes = Integer.parseInt(presidents[8]);
-				int popularVotes = Integer.parseInt(presidents[9]);
-				int totalPopularVotes = Integer.parseInt(presidents[10]);
-				int totalElectoralVotes = Integer.parseInt(presidents[11]);
-				int ratingPoints = Integer.parseInt(presidents[12]);
+				int electoralVotes = Integer.parseInt(presidents[8].equals("") ? "0":presidents[8]);
+				int popularVotes = Integer.parseInt(presidents[9].equals("") ? "0":presidents[9]);
+				int totalPopularVotes = Integer.parseInt(presidents[10].equals("") ? "0":presidents[10]);
+				int totalElectoralVotes = Integer.parseInt(presidents[11].equals("") ? "0":presidents[11]);
+				int ratingPoints = Integer.parseInt(presidents[12].equals("") ? "0":presidents[12]);
 				String party = presidents[13];
 				String occupation = presidents[14];
 				String college = presidents[15];
-				double electoralPercentage = Double.parseDouble(presidents[16]);
-				double popularPercentage = Double.parseDouble(presidents[17]);
+				String electoralPercentage = presidents[16];
+				String popularPercentage = presidents[17];
 				
-				presList.add(new President(firstName, middleName, lastName, inaugYear, yearsInOffice,
+				presList.add(new President(firstName, middleName, lastName, yearsInOffice, inaugYear,
 						endYear, ageAtInaug, stateElected, electoralVotes, popularVotes,
 						totalPopularVotes, totalElectoralVotes, ratingPoints, party, occupation,
 						college,  electoralPercentage, popularPercentage));
@@ -57,6 +62,16 @@ public class PresidentFileDAO implements PresidentDAO {
 		} catch (Exception e) {
 			System.err.println(e);
 		}
+//		try {
+//			FileWriter fr = new FileWriter("WEB-INF/test.txt");
+//			for (President president : presList) {
+//				fr.append(presList.toString());
+//			}
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 	}
 
 	public President getPresident(int presNum){

@@ -16,7 +16,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>PresidentServlet</servlet-name>
-		<url-pattern>/presidents</url-pattern>
+		<url-pattern>/index.jsp</url-pattern>
 	</servlet-mapping>
 
 </web-app>
