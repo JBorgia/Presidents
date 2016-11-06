@@ -22,7 +22,7 @@ public class PresidentServlet extends HttpServlet {
 		
 		List<String> presMenu = new ArrayList<>();
 		for (President president : presidentDAO.getAllPresidents()) {
-			presMenu = 
+			presMenu.add(president.getFirstName() + " " + president.getLastName()); 
 		}
 	}
 
