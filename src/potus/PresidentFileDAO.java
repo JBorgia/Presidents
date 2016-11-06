@@ -39,16 +39,16 @@ public class PresidentFileDAO implements PresidentDAO {
 				String firstName = presidents[0];
 				String middleName = presidents[1];
 				String lastName = presidents[2];
-				double yearsInOffice = Double.parseDouble(presidents[3].equals("") ? "0" : presidents[3]);
-				double inaugYear = Double.parseDouble(presidents[4].equals("") ? "0" : presidents[4]);
-				double endYear = Double.parseDouble(presidents[5].equals("") ? "0" : presidents[5]);
-				int ageAtInaug = Integer.parseInt(presidents[6].equals("") ? "0" : presidents[6]);
+				double yearsInOffice = Double.parseDouble(presidents[3].equals("") ? "-1" : presidents[3]);
+				double inaugYear = Double.parseDouble(presidents[4].equals("") ? "-1" : presidents[4]);
+				double endYear = Double.parseDouble(presidents[5].equals("") ? "-1" : presidents[5]);
+				int ageAtInaug = Integer.parseInt(presidents[6].equals("") ? "-1" : presidents[6]);
 				String stateElected = presidents[7];
-				int electoralVotes = Integer.parseInt(presidents[8].equals("") ? "0" : presidents[8]);
-				int popularVotes = Integer.parseInt(presidents[9].equals("") ? "0" : presidents[9]);
-				int totalPopularVotes = Integer.parseInt(presidents[10].equals("") ? "0" : presidents[10]);
-				int totalElectoralVotes = Integer.parseInt(presidents[11].equals("") ? "0" : presidents[11]);
-				int ratingPoints = Integer.parseInt(presidents[12].equals("") ? "0" : presidents[12]);
+				int electoralVotes = Integer.parseInt(presidents[8].equals("") ? "-1" : presidents[8]);
+				int popularVotes = Integer.parseInt(presidents[9].equals("") ? "-1" : presidents[9]);
+				int totalPopularVotes = Integer.parseInt(presidents[10].equals("") ? "-1" : presidents[10]);
+				int totalElectoralVotes = Integer.parseInt(presidents[11].equals("") ? "-1" : presidents[11]);
+				int ratingPoints = Integer.parseInt(presidents[12].equals("") ? "-1" : presidents[12]);
 				String party = presidents[13];
 				String occupation = presidents[14];
 				String college = presidents[15];
@@ -67,14 +67,6 @@ public class PresidentFileDAO implements PresidentDAO {
 	public President getPresident(int presNum) {
 		this.presNum = presNum;
 		return presList.get(presNum);
-	}
-
-	public President getNext() {
-		return getPresident(++this.presNum);
-	}
-
-	public President getPrev() {
-		return getPresident(--this.presNum);
 	}
 
 	public List<President> getAllPresidents() {
