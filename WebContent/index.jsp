@@ -21,71 +21,74 @@
 	<button name="submit" value="next">Next</button>
 	</form>
 	
-	<div id="photo"></div>
+	
+	<div id="photo">
+	<img src="${President.allPresidents[PresNum].presidentPic}" />
+	</div>
 	<div id="info">
 	<ul>
-		<c:if test="${!President.allPresidents[PresNum].middleName.equals(\"\")}">
-		<li>Middle Name: ${President.allPresidents[PresNum].middleName }</li>
-		</c:if>
 		
 		<c:if test="${President.allPresidents[PresNum].yearsInOffice != -1}">
-		<li>Years In Office: ${President.allPresidents[PresNum].yearsInOffice}</li>
+		<li>Years In Office: <fmt:formatNumber value="${President.allPresidents[PresNum].yearsInOffice}" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].inaugYear != \"-1\"}">
-		<li>Inauguration Year: ${President.allPresidents[PresNum].inaugYear}</li>
+		<c:if test="${President.allPresidents[PresNum].inaugYear != -1}">
+		<li>Inauguration Year: <fmt:formatNumber pattern="####" value="${President.allPresidents[PresNum].inaugYear}" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].endYear != -1}">
-		<li>End Year: ${President.allPresidents[PresNum].endYear}</li>
+		<c:if test="${President.allPresidents[PresNum].endYear != -1}">
+		<li>End Year: <fmt:formatNumber pattern="####" value="${President.allPresidents[PresNum].endYear}" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].ageAtInaug != -1}">
-		<li>Inauguration Age: ${President.allPresidents[PresNum].ageAtInaug}</li>
+		<c:if test="${President.allPresidents[PresNum].ageAtInaug != -1}">
+		<li>Inauguration Age: <fmt:formatNumber value="${President.allPresidents[PresNum].ageAtInaug}" type="number" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${!AllPresident[PresNum].stateElected.equals(\"\")}">
+		<c:if test="${!President.allPresidents[PresNum].stateElected.equals(\"\")}">
 		<li>State Elected: ${President.allPresidents[PresNum].stateElected}</li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].electoralVotes != -1}">
-		<li>ElectoralVotes: ${President.allPresidents[PresNum].electoralVotes}</li>
+		<c:if test="${President.allPresidents[PresNum].electoralVotes != -1}">
+		<li>ElectoralVotes: <fmt:formatNumber value="${President.allPresidents[PresNum].electoralVotes}" type="number" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].popularVotes.equal('-1')}">
-		<li>Popular Votes: ${President.allPresidents[PresNum].popularVotes}</li>
+		<c:if test="${President.allPresidents[PresNum].popularVotes != -1}">
+		
+		<li>Popular Votes: <fmt:formatNumber value="${President.allPresidents[PresNum].popularVotes}" type="number" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].totalPopularVotes != -1}">
-		<li>Total Popular Votes: ${President.allPresidents[PresNum].totalPopularVotes}</li>
+		<c:if test="${President.allPresidents[PresNum].totalPopularVotes != -1}">
+		<li>Total Popular Votes: <fmt:formatNumber value="${President.allPresidents[PresNum].totalPopularVotes}" type="number" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].totalElectoralVotes != -1}">
-		<li>Total Electoral Votes: ${President.allPresidents[PresNum].totalElectoralVotes}</li>
+		<c:if test="${President.allPresidents[PresNum].totalElectoralVotes != -1}">
+		
+		<li>Total Electoral Votes: <fmt:formatNumber value="${President.allPresidents[PresNum].totalElectoralVotes}" type="number" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].ratingPoints != -1}">
-		<li>Rating Points: ${President.allPresidents[PresNum].ratingPoints}</li>
+		<c:if test="${President.allPresidents[PresNum].ratingPoints != -1}">
+		
+		<li>Rating Points: <fmt:formatNumber value="${President.allPresidents[PresNum].ratingPoints}" type="number" maxFractionDigits="0"/></li>
 		</c:if>
 		
-		<c:if test="${!AllPresident[PresNum].party.equals(\"\")}">
+		<c:if test="${!President.allPresidents[PresNum].party.equals(\"\")}">
 		<li>Party: ${President.allPresidents[PresNum].party}</li>
 		</c:if>
 		
-		<c:if test="${!AllPresident[PresNum].occupation.equals(\"\")}">
+		<c:if test="${!President.allPresidents[PresNum].occupation.equals(\"\")}">
 		<li>Occupation: ${President.allPresidents[PresNum].occupation}</li>
 		</c:if>
 		
-		<c:if test="${!AllPresident[PresNum].college.equals(\"\")}">
+		<c:if test="${!President.allPresidents[PresNum].college.equals(\"\")}">
 		<li>College: ${President.allPresidents[PresNum].college}</li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].electoralPercentage.equals(\"\")}">
-		<li>Electoral Percentage: ${President.allPresidents[PresNum].electoralPercentage}</li>
+		<c:if test="${!President.allPresidents[PresNum].electoralPercentage.equals(\"\")}">
+		<li>Electoral Percentage: ${President.allPresidents[PresNum].electoralPercentage}%</li>
 		</c:if>
 		
-		<c:if test="${AllPresident[PresNum].popularPercentage.equals(\"\")}">
-		<li>Popular Percentage: ${President.allPresidents[PresNum].popularPercentage}</li>
+		<c:if test="${!President.allPresidents[PresNum].popularPercentage.equals(\"\")}">
+		<li>Popular Percentage: ${President.allPresidents[PresNum].popularPercentage}%</li>
 		</c:if>
 	</ul>
 	
