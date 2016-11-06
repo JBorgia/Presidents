@@ -42,7 +42,9 @@ public class PresidentServlet extends HttpServlet {
 
 		ServletContext context = getServletContext();
 		String nav = req.getParameter("submit");
-		int termNumber = Integer.parseInt(req.getParameter("presNum"));
+		int termNumber = 1;
+		if(req.getParameter("presNum")!=null){
+		termNumber = Integer.parseInt(req.getParameter("presNum"));
 		Integer presNum = (Integer) context.getAttribute("PresNum");
 		if (nav.equals("next")) {
 			presNum=termNumber++;
@@ -60,6 +62,13 @@ public class PresidentServlet extends HttpServlet {
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
 
 		dispatcher.forward(req, resp);
+		}
+		else{
+		context.setAttribute("TermNum", termNumber);
+		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
+		dispatcher.forward(req, resp);
+		}
+		
 	}
 
 }
