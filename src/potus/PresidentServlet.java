@@ -61,7 +61,7 @@ public class PresidentServlet extends HttpServlet {
 			presNum = termNumber - 1;
 		} else if (termNumber < 1) {
 			while(termNumber < 1){
-				termNumber += termNumber;
+				termNumber += presidentDAO.getAllPresidents().size();
 			}
 			presNum = termNumber - 1;
 		}
