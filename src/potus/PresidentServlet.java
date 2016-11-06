@@ -55,7 +55,16 @@ public class PresidentServlet extends HttpServlet {
 		} else if (nav.equals("userInput")) {
 			presNum = termNumber-1;
 		}
-
+		
+		if (termNumber > presidentDAO.getAllPresidents().size()) {
+			termNumber = termNumber % presidentDAO.getAllPresidents().size();
+			presNum = termNumber - 1;
+		} else if (termNumber < 1) {
+			while(termNumber < 1){
+				termNumber += termNumber;
+			}
+			presNum = termNumber - 1;
+		}
 		context.setAttribute("President", presidentDAO);
 		context.setAttribute("PresNum", presNum);
 		context.setAttribute("TermNum", termNumber);
