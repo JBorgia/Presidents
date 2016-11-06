@@ -22,31 +22,44 @@ public class PresidentServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		presidentDAO = new PresidentFileDAO(context);
 		context.setAttribute("President", presidentDAO);
+		context.setAttribute("PresNum", presNum);
+		// context.setAttribute("currentPresident",
+		// presidentDAO.getAllPresidents().get(presNum));
 
 		List<String> presMenu = new ArrayList<>();
 		for (int i = 1; i <= presidentDAO.getAllPresidents().size(); i++) {
-			presMenu.add(i + ". " + presidentDAO.getPresident(i).getFirstName() + " " + presidentDAO.getPresident(i).getLastName());
+			presMenu.add(i + ". " + presidentDAO.getPresident(i - 1).getFirstName() + " "
+					+ presidentDAO.getPresident(i - 1).getLastName());
 		}
 	}
 
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		ServletContext context = getServletContext();
-		Integer presNum = (Integer) context.getAttribute("presNum");
-		String nav = (String) context.getAttribute("submit");
-
+		String nav = req.getParameter("submit");
+		int termNumber = Integer.parseInt(req.getParameter("presNum"));
+		Integer presNum = (Integer) context.getAttribute("PresNum");
 		if (nav.equals("next")) {
-			presNum++;
+			presNum=termNumber++;
 		} else if (nav.equals("prev")) {
-			presNum--;
+			presNum=--termNumber-1;
 		} else if (presNum == null) {
 			presNum = 0;
+		} else if (nav.equals("userInput")) {
+			presNum = termNumber-1;
 		}
 
 		context.setAttribute("President", presidentDAO);
 		context.setAttribute("PresNum", presNum);
+		context.setAttribute("TermNum", termNumber);
 		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
 
 		dispatcher.forward(req, resp);
 	}
+
 }
