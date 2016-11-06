@@ -2,37 +2,47 @@
 
 body {
 	font-family: 'Merriweather', serif;
-	 text-align: center;
+	margin: auto;
+    width: 50%;
+    padding: 10px;
 }
 
+h1 {
+	text-align: center;
+}
 #presName {
 	
 }
 
 #bigDiv{
+	margin: auto;
+    width: 80%;
+    padding: 10px;
 }
 
 #photo > img {
 	position: relative;
-	height:250px;
-	width:190px;	
-	border: 2px solid black;
+/* 	width: 200px;
+	height: 200px; */
+	margin: auto;
+    width: 50%; 
+    padding: 10px;
 }
 
 #photo{
-	position: relative;
 	right: 200px;
 	
 }
 
 #info {
 	position: relative;
-	text-align: left;
-	left: 250px;
-	bottom: 270px;
+	width: 60%;
+	height: 60%;
+	margin: auto;
+	left: 200px;
+	bottom: 250px;
 }
 
-li{
-	position: relative;
-	position: left 200px;
+ul {
+	bottom: 270px;
 }

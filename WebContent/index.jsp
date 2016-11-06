@@ -90,11 +90,7 @@
 					<li>Popular Percentage: ${President.allPresidents[PresNum].popularPercentage}%</li>
 				</c:if>
 			</ul>
-		
 		</div>
 	</div>
-
-
-
 </body>
 </html>
