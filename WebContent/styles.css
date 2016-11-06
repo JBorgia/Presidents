@@ -23,14 +23,13 @@ h1 {
 #photo > img {
  	position: relative;
 	width: 200px;
-	height: 200px; 
+	height: 250px; 
 	margin: auto;
     width: 50%; 
     padding: 10px; 
 }
 
-#photo{
-	
+#photo{	
 	right: 400px;
 	
 }
@@ -45,6 +44,7 @@ h1 {
 	padding: 10px;
 }
 
-/* ul {
-	bottom: 270px;
-} */
+#prevNext {
+	padding: 5px;
+	margin: 0 auto; 
+} 

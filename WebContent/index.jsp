@@ -17,15 +17,17 @@
 	
 	<form action="index.do" method="GET">
 		Term Number: <input type="text" name="presNum" value="${TermNum}"><br />
-		<input type="submit" name="submit" value="input">
-		<button name="submit" value="prev">Prev</button>
-		<button name="submit" value="next">Next</button>
+		<input type="submit" name="submit" value="Submit">
 	</form>
 	<br>
 	
 	<div id="bigDiv">
 		<div id="photo">
 		<img src="${President.allPresidents[PresNum].presidentPic}" />
+			<div id="prevNext">
+			<button name="submit" value="prev">Prev</button>
+			<button name="submit" value="next">Next</button>
+			</div>
 		</div>
 		<div id="info">
 			<ul>
