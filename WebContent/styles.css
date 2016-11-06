@@ -21,16 +21,17 @@ h1 {
 }
 
 #photo > img {
-	position: relative;
-/* 	width: 200px;
-	height: 200px; */
+ 	position: relative;
+	width: 200px;
+	height: 200px; 
 	margin: auto;
     width: 50%; 
-    padding: 10px;
+    padding: 10px; 
 }
 
 #photo{
-	right: 200px;
+	
+	right: 400px;
 	
 }
 
@@ -41,8 +42,9 @@ h1 {
 	margin: auto;
 	left: 200px;
 	bottom: 250px;
+	padding: 10px;
 }
 
-ul {
+/* ul {
 	bottom: 270px;
-}
+} */
