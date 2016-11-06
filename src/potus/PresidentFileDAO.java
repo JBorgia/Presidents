@@ -54,10 +54,11 @@ public class PresidentFileDAO implements PresidentDAO {
 				String college = presidents[15];
 				String electoralPercentage = presidents[16];
 				String popularPercentage = presidents[17];
+				String presidentPic = presidents[18];
 
 				presList.add(new President(firstName, middleName, lastName, yearsInOffice, inaugYear, endYear,
 						ageAtInaug, stateElected, electoralVotes, popularVotes, totalPopularVotes, totalElectoralVotes,
-						ratingPoints, party, occupation, college, electoralPercentage, popularPercentage));
+						ratingPoints, party, occupation, college, electoralPercentage, popularPercentage, presidentPic));
 			}
 		} catch (Exception e) {
 			System.err.println(e);

@@ -19,7 +19,7 @@ public class President {
 	private String college;
 	private String electoralPercentage;
 	private String popularPercentage;
-	
+	private String presidentPic;
 
 	public President(){
 		
@@ -27,7 +27,7 @@ public class President {
 	public President(String firstName, String middleName, String lastName, double yearsInOffice, double inaugYear,
 			double endYear, int ageAtInAug, String stateElected, int electoralVotes, int popularVotes,
 			int totalPopularVotes, int totalElectoralVotes, int ratingPoints, String party, String occupation,
-			String college, String electoralPercentage, String popularPercentage) {
+			String college, String electoralPercentage, String popularPercentage, String presidentPic) {
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
@@ -46,6 +46,7 @@ public class President {
 		this.college = college;
 		this.electoralPercentage = electoralPercentage;
 		this.popularPercentage = popularPercentage;
+		this.presidentPic = presidentPic;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -163,4 +164,11 @@ public class President {
 		this.ageAtInaug = ageAtInaug;
 	}
 	
+	public String getPresidentPic() {
+		return presidentPic;
+	}
+	
+	public void setPresidentPic(String presidentPic) {
+		this.presidentPic = presidentPic;
+	}
 }
