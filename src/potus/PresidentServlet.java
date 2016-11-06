@@ -43,41 +43,45 @@ public class PresidentServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		String nav = req.getParameter("submit");
 		int termNumber = 1;
-		if(req.getParameter("presNum")!=null){
-		termNumber = Integer.parseInt(req.getParameter("presNum"));
-		Integer presNum = (Integer) context.getAttribute("PresNum");
-		if (nav.equals("next")) {
-			presNum=termNumber++;
-		} else if (nav.equals("prev")) {
-			presNum=--termNumber-1;
-		} else if (presNum == null) {
-			presNum = 0;
-		} else if (nav.equals("userInput")) {
-			presNum = termNumber-1;
-		}
-		
-		if (termNumber > presidentDAO.getAllPresidents().size()) {
-			termNumber = termNumber % presidentDAO.getAllPresidents().size();
-			presNum = termNumber - 1;
-		} else if (termNumber < 1) {
-			while(termNumber < 1){
-				termNumber += presidentDAO.getAllPresidents().size();
+		if (req.getParameter("presNum") != null) {
+			Integer presNum = (Integer) context.getAttribute("PresNum");
+			try {
+				termNumber = Integer.parseInt(req.getParameter("presNum"));
+			} catch (NumberFormatException e) {
+				termNumber = presNum + 1;
 			}
-			presNum = termNumber - 1;
-		}
-		context.setAttribute("President", presidentDAO);
-		context.setAttribute("PresNum", presNum);
-		context.setAttribute("TermNum", termNumber);
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
+			
+			if (nav.equals("next")) {
+				presNum = termNumber++;
+			} else if (nav.equals("prev")) {
+				presNum = --termNumber - 1;
+			} else if (presNum == null) {
+				presNum = 0;
+			} else if (nav.equals("userInput")) {
+				presNum = termNumber - 1;
+			}
 
-		dispatcher.forward(req, resp);
+			if (termNumber > presidentDAO.getAllPresidents().size()) {
+				termNumber = termNumber % presidentDAO.getAllPresidents().size();
+				presNum = termNumber - 1;
+			} else if (termNumber < 1) {
+				while (termNumber < 1) {
+					termNumber += presidentDAO.getAllPresidents().size();
+				}
+				presNum = termNumber - 1;
+			}
+			context.setAttribute("President", presidentDAO);
+			context.setAttribute("PresNum", presNum);
+			context.setAttribute("TermNum", termNumber);
+			RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
+
+			dispatcher.forward(req, resp);
+		} else {
+			context.setAttribute("TermNum", termNumber);
+			RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
+			dispatcher.forward(req, resp);
 		}
-		else{
-		context.setAttribute("TermNum", termNumber);
-		RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");
-		dispatcher.forward(req, resp);
-		}
-		
+
 	}
 
 }
