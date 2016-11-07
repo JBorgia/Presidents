@@ -96,8 +96,8 @@
 		</div>
 		<div id="footer">
 			<div id="filter"><form action="index.do" method="GET">
-			Years in Office Min: <input type="text" name="yearsInOfficeMin"><br />
-			Years in Office Max:<input type="text" name="yearsInOfficeMax"><br />
+			Years in Office From: <input type="text" name="yearsInOfficeMin"><br />
+			Years in Office To:<input type="text" name="yearsInOfficeMax"><br />
 			Presidents from Year:<input type="text" name="rangeYearMin"><br />
 			Presidents to Year:<input type="text" name="rangeYearMax"><br />
 			President age from:<input type="text" name="ageAtInAugMin"><br />
