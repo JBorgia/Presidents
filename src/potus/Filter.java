@@ -4,26 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Filter {
-//	private String firstName;
-//	private String middleName;
-//	private String lastName;
-//	private double inaugYear;
-//	private double yearsInOffice;
-//	private double endYear;
-//	private int ageAtInaug;
-//	private String stateElected;
-//	private int electoralVotes;
-//	private int popularVotes;
-//	private int totalPopularVotes;
-//	private int totalElectoralVotes;
-//	private int ratingPoints;
-//	private String party;
-//	private String occupation;
-//	private String college;
-//	private String electoralPercentage;
-//	private String popularPercentage;
-//	private String presidentPic;
-	List<President> presList;
+	private List<President> presList;
 	
 	public List<President> getFilter(	List<President> presList, 
 										double yearsInOfficeMin, 
@@ -52,8 +33,16 @@ public class Filter {
 		this.presList = presList;
 		getDateRange(rangeYearMin, rangeYearMax);
 		getTermRange( yearsInOfficeMin, yearsInOfficeMax);
+		getElectoralPercentRange(electoralPercentageMin, electoralPercentageMax);
+		getPopularPercentRange(popularPercentageMin, popularPercentageMax);
+		getElectoralVotesRange(electoralVotesMin, electoralVotesMax);
+		getPopularVotesRange(popularVotesMin, popularVotesMax);
+		getStateFilter( stateElected);
+		getPartyFilter( party);
+		getOccupationFilter(occupation);
+		getCollegeFilter(college);
 		
-		return presList;
+		return this.presList;
 	}
 	
 	private void getDateRange(double min, double max) {
@@ -116,15 +105,38 @@ public class Filter {
 	}
 	
 	public void getStateFilter(String stateElected){
-		
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (!president.getStateElected().equals("stateElected")){
+				iterator.remove();
+			}
+		}
 	}
 	
-	public void getPartyFilter(List<President> presList) {
+	public void getPartyFilter(String party){
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (!president.getParty().equals("party")){
+				iterator.remove();
+			}
+		}
 	}
 	
-	public void getOccupationFilter(List<President> presList) {
+	public void getOccupationFilter(String occupation){
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (!president.getOccupation().equals("occupation")){
+				iterator.remove();
+			}
+		}
 	}
 	
-	public void getCollegeFilter(List<President> presList) {
+	public void getCollegeFilter(String college){
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (!president.getCollege().equals("college")){
+				iterator.remove();
+			}
+		}
 	}
 }
