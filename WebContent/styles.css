@@ -27,16 +27,20 @@ h1 {
  	position: relative;
 	width: 200px;
 	height: 250px; 
-	margin: auto;
-    padding: 10px; 
+	margin: auto; 
+    border: 2px solid black;
+    
 }
 
+#photo{
+	  padding-top: 20px;
+}
 
 #info {
 	position: relative;
 	left: 200px;
 	bottom: 315px;
-	padding: 10px;
+	padding-top: 20px;
 }
 
 #prevNext {
