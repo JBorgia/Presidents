@@ -11,7 +11,7 @@ public class President {
 	private String stateElected;
 	private int electoralVotes;
 	private int popularVotes;
-	private int totalPopularVotes;
+	private int totalPopularVotes; 
 	private int totalElectoralVotes;
 	private int ratingPoints;
 	private String party;

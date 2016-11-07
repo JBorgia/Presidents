@@ -55,3 +55,13 @@ h1 {
 	bottom:0;
 	left:0;
 }
+
+#photoInfoContainer{
+	height: 90px;
+}
+
+#filter{
+	position: relative;
+	width: 100%;
+	padding-bottom: 20px;
+}
