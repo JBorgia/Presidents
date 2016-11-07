@@ -95,7 +95,7 @@
 			</div>
 		</div>
 		<div id="footer">
-			<div><form action="index.do" method="GET">
+			<div id="filter"><form action="index.do" method="GET">
 			Years in Office Min: <input type="text" name="yearsInOfficeMin"><br />
 			Years in Office Max:<input type="text" name="yearsInOfficeMax"><br />
 			Presidents from Year:<input type="text" name="rangeYearMin"><br />
@@ -111,12 +111,13 @@
 			Electoral Votes to:<input type="text" name="totalElectoralVotesMax"><br />
 			Rating Points from:<input type="text" name="ratingPointsMin"><br />
 			Rating Points to:<input type="text" name="ratingPointsMin"><br />
-			Party: <input type="radio"  name="party" value="federalist">
-			Party: <input type="radio"  name="party" value="democratic-Republican">
-			Party: <input type="radio"  name="party" value="republican">
-			Party: <input type="radio"  name="party" value="democrat">
-			Party: <input type="radio"  name="party" value="whig">
-			Party: <input type="radio"  name="party" value="none"><br />
+			Federalist <input type="radio"  name="party" value="federalist">
+			Democratic-Republican<input type="radio"  name="party" value="democratic-Republican">
+			Republican <input type="radio"  name="party" value="republican">
+			Democrat: <input type="radio"  name="party" value="democrat">
+			Whig: <input type="radio"  name="party" value="whig">
+			Unaffiliated: <input type="radio"  name="party" value="none"><br />
+			
 			
 			<button class="button" name="submit" value="userInput">Submit</button>
 			
