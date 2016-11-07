@@ -95,34 +95,6 @@
 			</div>
 		</div>
 		<div id="footer">
-			<div id="filter"><form action="index.do" method="GET">
-			Years in Office From: <input type="text" name="yearsInOfficeMin"><br />
-			Years in Office To:<input type="text" name="yearsInOfficeMax"><br />
-			Presidents from Year:<input type="text" name="rangeYearMin"><br />
-			Presidents to Year:<input type="text" name="rangeYearMax"><br />
-			President age from:<input type="text" name="ageAtInAugMin"><br />
-			President age to:<input type="text" name="ageAtInAugMax"><br />
-			State Elected:<select>
-							<c:forEach var="states" items="${statesMenu}">
-								<option value="${states}">${states}</option>
-							</c:forEach>
-						  </select><br />
-			Electoral Votes from:<input type="text" name="totalElectoralVotesMin"><br />
-			Electoral Votes to:<input type="text" name="totalElectoralVotesMax"><br />
-			Rating Points from:<input type="text" name="ratingPointsMin"><br />
-			Rating Points to:<input type="text" name="ratingPointsMax"><br />
-			Federalist <input type="radio"  name="party" value="federalist">
-			Democratic-Republican<input type="radio"  name="party" value="democratic-Republican">
-			Republican <input type="radio"  name="party" value="republican">
-			Democrat: <input type="radio"  name="party" value="democrat">
-			Whig: <input type="radio"  name="party" value="whig">
-			Unaffiliated: <input type="radio"  name="party" value="none"><br />
-			
-			
-			<button class="button" name="submit" value="userInput">Submit</button>
-			
-			</form>
-		</div>
 		<p>Created November 2016. Jonathan Borgia, Jonathan Edwards, Yvette Menase. SD7.</p>
 		</div><!-- #footer -->
 	</div>

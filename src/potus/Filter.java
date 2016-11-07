@@ -32,28 +32,29 @@ public class Filter implements PresidentDAO {
 			String college, 
 			String electoralPercentageMin,
 			String electoralPercentageMax, 
-			String popularPercentageMin, String popularPercentageMax) {
+			String popularPercentageMin, 
+			String popularPercentageMax) {
 
 
-		if (rangeYearMin != 0 && rangeYearMax != 0)
+		if (!(rangeYearMin == 0 && rangeYearMax == 0) && rangeYearMax>rangeYearMin)
 			getDateRange(rangeYearMin, rangeYearMax);
-		if (yearsInOfficeMin != 0 && yearsInOfficeMax != 0)
+		if (!(yearsInOfficeMin == 0 && yearsInOfficeMax == 0) && yearsInOfficeMax>yearsInOfficeMin)
 			getTermRange(yearsInOfficeMin, yearsInOfficeMax);
-		if (electoralPercentageMin != "" && electoralPercentageMax != "")
+		if (electoralPercentageMin!=null && electoralPercentageMax!=null)
 			getElectoralPercentRange(electoralPercentageMin, electoralPercentageMax);
-		if (popularPercentageMin != "" && popularPercentageMax != "")
+		if (popularPercentageMin!=null && popularPercentageMax!=null)
 			getPopularPercentRange(popularPercentageMin, popularPercentageMax);
-		if (electoralVotesMin != 0 && electoralVotesMax != 0)
+		if (!(electoralVotesMin == 0 && electoralVotesMax == 0) && electoralVotesMax>electoralVotesMin)
 			getElectoralVotesRange(electoralVotesMin, electoralVotesMax);
-		if (popularVotesMin != 0 && popularVotesMax != 0)
+		if (!(popularVotesMin == 0 && popularVotesMax == 0) && popularVotesMax>popularVotesMin)
 			getPopularVotesRange(popularVotesMin, popularVotesMax);
-		if (stateElected != "")
+		if (stateElected!=null)
 			getStateFilter(stateElected);
-		if (party != "")
+		if (party!=null)
 			getPartyFilter(party);
-		if (occupation != "")
+		if (occupation!=null)
 			getOccupationFilter(occupation);
-		if (college != "")
+		if (college!=null)
 			getCollegeFilter(college);
 
 		return this.presList;

@@ -48,35 +48,45 @@ public class PresidentServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		
+
 		ServletContext context = getServletContext();
 		String nav = req.getParameter("submit");
+		if (nav!=null && nav.equals("reset")){
+			presidentDAO = new PresidentFileDAO(context);
+		}
+			
 		Filter filter = new Filter(presidentDAO);
+//		System.out.println(req.getParameter("stateElected"));
 		filter.getFilter(
-						Double.parseDouble(req.getParameter("yearsInOfficeMin").equals("")? "0":req.getParameter("yearsInOfficeMin")),
-						Double.parseDouble(req.getParameter("yearsInOfficeMax").equals("")? "0":req.getParameter("yearsInOfficeMax")),
-						Double.parseDouble(req.getParameter("rangeYearMin").equals("")? "0":req.getParameter("rangeYearMin")),
-						Double.parseDouble(req.getParameter("rangeYearMax").equals("")? "0":req.getParameter("rangeYearMax")),  
-						Integer.parseInt(req.getParameter("ageAtInAugMin").equals("")? "0":req.getParameter("ageAtInAugMin")),  
-						Integer.parseInt(req.getParameter("ageAtInAugMax").equals("")? "0":req.getParameter("ageAtInAugMax")),
+						Double.parseDouble(req.getParameter("yearsInOfficeMin")==null? "0":req.getParameter("yearsInOfficeMin").equals("")? "0":req.getParameter("yearsInOfficeMin")),
+						Double.parseDouble(req.getParameter("yearsInOfficeMax")==null? "0":req.getParameter("yearsInOfficeMax").equals("")? "0":req.getParameter("yearsInOfficeMax")),
+						Double.parseDouble(req.getParameter("rangeYearMin")==null? "0":req.getParameter("rangeYearMin").equals("")? "0":req.getParameter("rangeYearMin")),
+						Double.parseDouble(req.getParameter("rangeYearMax")==null? "0":req.getParameter("rangeYearMax").equals("")? "0":req.getParameter("rangeYearMax")),  
+						Integer.parseInt(req.getParameter("ageAtInAugMin")==null? "0":req.getParameter("ageAtInAugMin").equals("")? "0":req.getParameter("ageAtInAugMin")),  
+						Integer.parseInt(req.getParameter("ageAtInAugMax")==null? "0":req.getParameter("ageAtInAugMax").equals("")? "0":req.getParameter("ageAtInAugMax")),
 						req.getParameter("stateElected"),
-						Integer.parseInt(req.getParameter("totalElectoralVotesMin").equals("")? "0":req.getParameter("totalElectoralVotesMin")),
-						Integer.parseInt(req.getParameter("totalElectoralVotesMax").equals("")? "0":req.getParameter("totalElectoralVotesMax")),
+						Integer.parseInt(req.getParameter("totalElectoralVotesMin")==null? "0":req.getParameter("totalElectoralVotesMin").equals("")? "0":req.getParameter("totalElectoralVotesMin")),
+						Integer.parseInt(req.getParameter("totalElectoralVotesMax")==null? "0":req.getParameter("totalElectoralVotesMax").equals("")? "0":req.getParameter("totalElectoralVotesMax")),
 //						Integer.parseInt(req.getParameter("popularVotesMax").equals("")? "0":req.getParameter("popularVotesMax")),
 //						Integer.parseInt(req.getParameter("popularVotesMin").equals("")? "0":req.getParameter("popularVotesMin")),
 						0,
 						0,
-						Integer.parseInt(req.getParameter("ratingPointsMin").equals("")? "0":req.getParameter("ratingPointsMin")),
-						Integer.parseInt(req.getParameter("ratingPointsMax").equals("")? "0":req.getParameter("ratingPointsMax")),
+						Integer.parseInt(req.getParameter("ratingPointsMin")==null? "0":req.getParameter("ratingPointsMin").equals("")? "0":req.getParameter("ratingPointsMin")),
+						Integer.parseInt(req.getParameter("ratingPointsMax")==null? "0":req.getParameter("ratingPointsMax").equals("")? "0":req.getParameter("ratingPointsMax")),
 						req.getParameter("party"),
-						req.getParameter("occupation"),
-						req.getParameter("college"),
-						req.getParameter("electoralPercentageMin"),
-						req.getParameter("electoralPercentageMax"), 
-						req.getParameter("popularPercentageMin"), 
-						req.getParameter("popularPercentageMax"));
+						null,
+						null,
+						null,
+						null,
+						null,
+						null);
+//		req.getParameter("occupation"),
+//		req.getParameter("college"),
+//		req.getParameter("electoralPercentageMin"),
+//		req.getParameter("electoralPercentageMax"), 
+//		req.getParameter("popularPercentageMin"), 
+//		req.getParameter("popularPercentageMax"));
 		
-		presidentDAO = (PresidentDAO)filter;
 		
 				int termNumber = 1;
 		if (req.getParameter("presNum") != null) {
@@ -96,17 +106,19 @@ public class PresidentServlet extends HttpServlet {
 			} else if (nav.equals("userInput")) {
 				presNum = termNumber - 1;
 			}
-
-			if (termNumber > presidentDAO.getAllPresidents().size()) {
-				termNumber = termNumber % presidentDAO.getAllPresidents().size();
+			
+			if(((PresidentDAO)filter).getAllPresidents().size()==0){
+				termNumber=0;
+			}else if (termNumber > ((PresidentDAO)filter).getAllPresidents().size()) {
+				termNumber = termNumber % ((PresidentDAO)filter).getAllPresidents().size();
 				presNum = termNumber - 1;
 			} else if (termNumber < 1) {
 				while (termNumber < 1) {
-					termNumber += presidentDAO.getAllPresidents().size();
+					termNumber += ((PresidentDAO)filter).getAllPresidents().size();
 				}
 				presNum = termNumber - 1;
 			}
-			context.setAttribute("President", presidentDAO);
+			context.setAttribute("President", ((PresidentDAO)filter));
 			context.setAttribute("PresNum", presNum);
 			context.setAttribute("TermNum", termNumber);
 			RequestDispatcher dispatcher = context.getRequestDispatcher("/index.jsp");

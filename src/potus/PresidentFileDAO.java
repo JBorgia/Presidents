@@ -19,7 +19,8 @@ public class PresidentFileDAO implements PresidentDAO {
 	private List<President> presList;
 
 	public PresidentFileDAO() {
-		this(null);
+		presList = new ArrayList<>();
+		loadPresidentsFromFile();
 	}
 
 	public PresidentFileDAO(ServletContext context) {
