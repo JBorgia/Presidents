@@ -110,7 +110,7 @@
 			Electoral Votes from:<input type="text" name="totalElectoralVotesMin"><br />
 			Electoral Votes to:<input type="text" name="totalElectoralVotesMax"><br />
 			Rating Points from:<input type="text" name="ratingPointsMin"><br />
-			Rating Points to:<input type="text" name="ratingPointsMin"><br />
+			Rating Points to:<input type="text" name="ratingPointsMax"><br />
 			Federalist <input type="radio"  name="party" value="federalist">
 			Democratic-Republican<input type="radio"  name="party" value="democratic-Republican">
 			Republican <input type="radio"  name="party" value="republican">
