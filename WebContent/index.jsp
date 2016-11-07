@@ -10,6 +10,7 @@
 	<title>Presidents</title>
 </head>
 <body>
+
 	<div id="container">
 		<h1>Presidents</h1>
 		
@@ -93,6 +94,10 @@
 				</ul>
 			</div>
 		</div>
+		<div id="footer">
+		<p>Created November 2016. Jonathan Borgia, Jonathan Edwards, Yvette Menase. SD7.</p>
+		</div><!-- #footer -->
 	</div>
+
 </body>
 </html>
