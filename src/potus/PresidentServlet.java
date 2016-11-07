@@ -2,7 +2,9 @@ package potus;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -29,6 +31,11 @@ public class PresidentServlet extends HttpServlet {
 		for (int i = 1; i <= presidentDAO.getAllPresidents().size(); i++) {
 			presMenu.add(i + ". " + presidentDAO.getPresident(i - 1).getFirstName() + " "
 					+ presidentDAO.getPresident(i - 1).getLastName());
+		}
+		
+		Set<String> statesMenu = new HashSet<>();
+		for (int i = 1; i <= presidentDAO.getAllPresidents().size(); i++) {
+			statesMenu.add(presidentDAO.getPresident(i - 1).getStateElected());
 		}
 	}
 

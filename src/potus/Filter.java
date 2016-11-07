@@ -28,8 +28,8 @@ public class Filter {
 	public List<President> getFilter(	List<President> presList, 
 										double yearsInOfficeMin, 
 										double yearsInOfficeMax, 
-										double RangeYearMin,
-										double RangeYearMax, 
+										double rangeYearMin,
+										double rangeYearMax, 
 										int ageAtInAugMin, 
 										int ageAtInAugMax, 
 										String stateElected, 
@@ -50,9 +50,8 @@ public class Filter {
 										String popularPercentageMax) {
 		
 		this.presList = presList;
-		getDateRange(RangeYearMin, RangeYearMax);
+		getDateRange(rangeYearMin, rangeYearMax);
 		getTermRange( yearsInOfficeMin, yearsInOfficeMax);
-		
 		
 		return presList;
 	}
@@ -69,13 +68,21 @@ public class Filter {
 	public void getTermRange( double min, double max) {
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();			
-			if (president.getYearsInOffice() < min && president.getYearsInOffice() > max){
+			if (president.getYearsInOffice() < min || president.getYearsInOffice() > max){
 				iterator.remove();
 			}
 		}
 	}
 	
-	public void getElectoralPercentRange(List<President> presList) {
+	public void getElectoralPercentRange(String minS, String maxS) {
+		double min = Double.parseDouble(minS);
+		double max = Double.parseDouble(maxS);
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (president.getTotalElectoralVotes() < min || president.getTotalElectoralVotes() > max){
+				iterator.remove();
+			}
+		}
 	}
 	
 	public void getPopularPercentRange(List<President> presList) {
