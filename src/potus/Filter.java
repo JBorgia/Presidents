@@ -26,7 +26,8 @@ public class Filter {
 	List<President> presList;
 	
 	public List<President> getFilter(	List<President> presList, 
-										double yearsInOffice, 
+										double yearsInOfficeMin, 
+										double yearsInOfficeMax, 
 										double RangeYearMin,
 										double RangeYearMax, 
 										int ageAtInAugMin, 
@@ -49,60 +50,53 @@ public class Filter {
 										String popularPercentageMax) {
 		
 		this.presList = presList;
+		getDateRange(RangeYearMin, RangeYearMax);
+		getTermRange( yearsInOfficeMin, yearsInOfficeMax);
 		
 		
 		return presList;
 	}
 	
-	private void getDateRange(int start, int end) {
+	private void getDateRange(double min, double max) {
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();			
-			if (president.getInaugYear() > end || president.getEndYear() < start){
+			if (president.getInaugYear() > max || president.getEndYear() < min){
 				iterator.remove();
 			}
 		}
 	}
 	
-	public List<President> getTermRange(List<President> presList, double min, double max) {
+	public void getTermRange( double min, double max) {
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();			
 			if (president.getYearsInOffice() < min && president.getYearsInOffice() > max){
 				iterator.remove();
 			}
 		}
-		return presList;
 	}
 	
-	public List<President> getElectoralPercentRange(List<President> presList) {
-		return presList;
+	public void getElectoralPercentRange(List<President> presList) {
 	}
 	
-	public List<President> getPopularPercentRange(List<President> presList) {
-		return presList;
+	public void getPopularPercentRange(List<President> presList) {
 	}
 
 	
-	public List<President> getElectoralVotesRange(List<President> presList) {
-		return presList;
+	public void getElectoralVotesRange(List<President> presList) {
 	}
 	
-	public List<President> getPopularVotesRange(List<President> presList) {
-		return presList;
+	public void getPopularVotesRange(List<President> presList) {
 	}
 	
-	public List<President> getStateFilter(List<President> presList) {
-		return presList;
+	public void getStateFilter(List<President> presList) {
 	}
 	
-	public List<President> getPartyFilter(List<President> presList) {
-		return presList;
+	public void getPartyFilter(List<President> presList) {
 	}
 	
-	public List<President> getOccupationFilter(List<President> presList) {
-		return presList;
+	public void getOccupationFilter(List<President> presList) {
 	}
 	
-	public List<President> getCollegeFilter(List<President> presList) {
-		return presList;
+	public void getCollegeFilter(List<President> presList) {
 	}
 }
