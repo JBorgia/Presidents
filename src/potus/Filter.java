@@ -123,7 +123,7 @@ public class Filter implements PresidentDAO {
 	public void getStateFilter(String stateElected) {
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();
-			if (!president.getStateElected().equals("stateElected")) {
+			if (!president.getStateElected().equalsIgnoreCase(stateElected)) {
 				iterator.remove();
 			}
 		}
@@ -132,7 +132,7 @@ public class Filter implements PresidentDAO {
 	public void getPartyFilter(String party) {
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();
-			if (!president.getParty().equals("party")) {
+			if (!president.getParty().equalsIgnoreCase(party)) {
 				iterator.remove();
 			}
 		}
@@ -141,7 +141,7 @@ public class Filter implements PresidentDAO {
 	public void getOccupationFilter(String occupation) {
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();
-			if (!president.getOccupation().equals("occupation")) {
+			if (!president.getOccupation().equalsIgnoreCase(occupation)) {
 				iterator.remove();
 			}
 		}
@@ -150,7 +150,7 @@ public class Filter implements PresidentDAO {
 	public void getCollegeFilter(String college) {
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();
-			if (!president.getCollege().equals("college")) {
+			if (!president.getCollege().equalsIgnoreCase(college)) {
 				iterator.remove();
 			}
 		}
