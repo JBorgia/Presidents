@@ -14,8 +14,7 @@ filter each category (e.g. party, occupation, college attended) to display the
 presidents meeting the selected criteria. On November 8, we will have a 45th
 president, so we may update the website to reflect that.
 
-AWS address: The deployment is Monday after this is due, but I will update this
-section.
+AWS address: http://35.162.152.34:8080/Presidents/
 
 Contributors:
 Jonathan Borgia, Jonathan Edwards, Yvette Menase. SD7, 11/6/2016.
