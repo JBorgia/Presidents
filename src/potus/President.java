@@ -145,14 +145,14 @@ public class President {
 	public void setCollege(String college) {
 		this.college = college;
 	}
-	public Double getElectoralPercentage() {
-		return Double.parseDouble(electoralPercentage);
+	public String getElectoralPercentage() {
+		return electoralPercentage;
 	}
 	public void setElectoralPercentage(String electoralPercentage) {
 		this.electoralPercentage = electoralPercentage;
 	}
-	public Double getPopularPercentage() {
-		return Double.parseDouble(popularPercentage);
+	public String getPopularPercentage() {
+		return popularPercentage;
 	}
 	public void setPopularPercentage(String popularPercentage) {
 		this.popularPercentage = popularPercentage;

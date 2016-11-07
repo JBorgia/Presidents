@@ -14,26 +14,26 @@ public class Filter {
 			String electoralPercentageMax, String popularPercentageMin, String popularPercentageMax) {
 
 		this.presList = presList;
-		
+
 		if (rangeYearMin != 0 && rangeYearMax != 0)
 			getDateRange(rangeYearMin, rangeYearMax);
 		if (yearsInOfficeMin != 0 && yearsInOfficeMax != 0)
 			getTermRange(yearsInOfficeMin, yearsInOfficeMax);
-		if (electoralPercentageMin != null && electoralPercentageMax != null)
+		if (electoralPercentageMin != "" && electoralPercentageMax != "")
 			getElectoralPercentRange(electoralPercentageMin, electoralPercentageMax);
-		if (popularPercentageMin != null && popularPercentageMax != null)
+		if (popularPercentageMin != "" && popularPercentageMax != "")
 			getPopularPercentRange(popularPercentageMin, popularPercentageMax);
 		if (electoralVotesMin != 0 && electoralVotesMax != 0)
 			getElectoralVotesRange(electoralVotesMin, electoralVotesMax);
 		if (popularVotesMin != 0 && popularVotesMax != 0)
 			getPopularVotesRange(popularVotesMin, popularVotesMax);
-		if (stateElected != null)
+		if (stateElected != "")
 			getStateFilter(stateElected);
-		if (party != null)
+		if (party != "")
 			getPartyFilter(party);
-		if (occupation != null)
+		if (occupation != "")
 			getOccupationFilter(occupation);
-		if (college != null)
+		if (college != "")
 			getCollegeFilter(college);
 
 		return this.presList;
@@ -62,7 +62,8 @@ public class Filter {
 		double max = Double.parseDouble(maxS);
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();
-			if (president.getTotalElectoralVotes() < min || president.getTotalElectoralVotes() > max) {
+			if (Double.parseDouble(president.getElectoralPercentage()) < min
+					|| Double.parseDouble(president.getElectoralPercentage()) > max) {
 				iterator.remove();
 			}
 		}
@@ -73,7 +74,8 @@ public class Filter {
 		double max = Double.parseDouble(maxS);
 		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
 			President president = (President) iterator.next();
-			if (president.getPopularPercentage() < min || president.getPopularPercentage() > max) {
+			if (Double.parseDouble(president.getPopularPercentage()) < min
+					|| Double.parseDouble(president.getPopularPercentage()) > max) {
 				iterator.remove();
 			}
 		}
