@@ -85,17 +85,38 @@ public class Filter {
 		}
 	}
 	
-	public void getPopularPercentRange(List<President> presList) {
+	public void getPopularPercentRange(String minS, String maxS) {
+		double min = Double.parseDouble(minS);
+		double max = Double.parseDouble(maxS);
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (president.getPopularPercentage() < min || president.getPopularPercentage() > max){
+				iterator.remove();
+			}
+		}
 	}
 
 	
-	public void getElectoralVotesRange(List<President> presList) {
+	public void getElectoralVotesRange( int min, int max) {
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (president.getElectoralVotes() < min || president.getElectoralVotes() > max){
+				iterator.remove();
+			}
+		}
 	}
 	
-	public void getPopularVotesRange(List<President> presList) {
+	public void getPopularVotesRange( int min, int max) {
+		for (Iterator<President> iterator = presList.iterator(); iterator.hasNext();) {
+			President president = (President) iterator.next();			
+			if (president.getPopularVotes() < min || president.getPopularVotes() > max){
+				iterator.remove();
+			}
+		}
 	}
 	
-	public void getStateFilter(List<President> presList) {
+	public void getStateFilter(String stateElected){
+		
 	}
 	
 	public void getPartyFilter(List<President> presList) {

@@ -32,11 +32,13 @@ public class PresidentServlet extends HttpServlet {
 			presMenu.add(i + ". " + presidentDAO.getPresident(i - 1).getFirstName() + " "
 					+ presidentDAO.getPresident(i - 1).getLastName());
 		}
+		context.setAttribute("presMenu", presMenu);
 		
 		Set<String> statesMenu = new HashSet<>();
 		for (int i = 1; i <= presidentDAO.getAllPresidents().size(); i++) {
 			statesMenu.add(presidentDAO.getPresident(i - 1).getStateElected());
 		}
+		context.setAttribute("statesMenu", statesMenu);
 	}
 
 	@Override
