@@ -95,32 +95,33 @@
 			</div>
 		</div>
 		<div id="footer">
-		<div><form action="index.do" method="GET">
-		Years in Office Min: <input type="text" name="yearsInOfficeMin">
-		Years in Office Max:<input type="text" name="yearsInOfficeMax">
-		Presidents from Year:<input type="text" name="rangeYearMin">
-		Presidents to Year:<input type="text" name="rangeYearMax">
-		President age from:<input type="text" name="ageAtInAugMin">
-		President age to:<input type="text" name="ageAtInAugMax">
-		State Elected:<select>
-						<c:forEach var="states" items="${statesMenu}">
-							<option value="${states}">${states}</option>
-						</c:forEach>
-					  </select>
-		Electoral Votes from:<input type="text" name="totalElectoralVotesMin">
-		Electoral Votes to:<input type="text" name="totalElectoralVotesMax">
-		Rating Points from:<input type="text" name="ratingPointsMin">
-		Rating Points to:<input type="text" name="ratingPointsMin">
-		Party: <input type="radio"  name="party" value="federalist">
-		Party: <input type="radio"  name="party" value="democratic-Republican">
-		Party: <input type="radio"  name="party" value="republican">
-		Party: <input type="radio"  name="party" value="democrat">
-		Party: <input type="radio"  name="party" value="whig">
-		Party: <input type="radio"  name="party" value="none">
-		
-		<button class="button" name="submit" value="userInput">Submit</button>
-		
-		</form></div>
+			<div><form action="index.do" method="GET">
+			Years in Office Min: <input type="text" name="yearsInOfficeMin"><br />
+			Years in Office Max:<input type="text" name="yearsInOfficeMax"><br />
+			Presidents from Year:<input type="text" name="rangeYearMin"><br />
+			Presidents to Year:<input type="text" name="rangeYearMax"><br />
+			President age from:<input type="text" name="ageAtInAugMin"><br />
+			President age to:<input type="text" name="ageAtInAugMax"><br />
+			State Elected:<select>
+							<c:forEach var="states" items="${statesMenu}">
+								<option value="${states}">${states}</option>
+							</c:forEach>
+						  </select><br />
+			Electoral Votes from:<input type="text" name="totalElectoralVotesMin"><br />
+			Electoral Votes to:<input type="text" name="totalElectoralVotesMax"><br />
+			Rating Points from:<input type="text" name="ratingPointsMin"><br />
+			Rating Points to:<input type="text" name="ratingPointsMin"><br />
+			Party: <input type="radio"  name="party" value="federalist">
+			Party: <input type="radio"  name="party" value="democratic-Republican">
+			Party: <input type="radio"  name="party" value="republican">
+			Party: <input type="radio"  name="party" value="democrat">
+			Party: <input type="radio"  name="party" value="whig">
+			Party: <input type="radio"  name="party" value="none"><br />
+			
+			<button class="button" name="submit" value="userInput">Submit</button>
+			
+			</form>
+		</div>
 		<p>Created November 2016. Jonathan Borgia, Jonathan Edwards, Yvette Menase. SD7.</p>
 		</div><!-- #footer -->
 	</div>
