@@ -3,17 +3,37 @@ package potus;
 import java.util.Iterator;
 import java.util.List;
 
-public class Filter {
+import javax.servlet.ServletContext;
+
+public class Filter implements PresidentDAO {
+	private int presNum;
 	private List<President> presList;
+	
+	public Filter(PresidentDAO presList){
+		this.presList = presList.getAllPresidents();
+	}
 
-	public List<President> getFilter(List<President> presList, double yearsInOfficeMin, double yearsInOfficeMax,
-			double rangeYearMin, double rangeYearMax, int ageAtInAugMin, int ageAtInAugMax, String stateElected,
-			int electoralVotesMin, int electoralVotesMax, int popularVotesMin, int popularVotesMax,
-			int totalElectoralVotesMin, int totalElectoralVotesMax, int ratingPointsMin, int ratingPointsMax,
-			String party, String occupation, String college, String electoralPercentageMin,
-			String electoralPercentageMax, String popularPercentageMin, String popularPercentageMax) {
+	public List<President> getFilter(
+			double yearsInOfficeMin, 
+			double yearsInOfficeMax,
+			double rangeYearMin, 
+			double rangeYearMax, 
+			int ageAtInAugMin, 
+			int ageAtInAugMax, 
+			String stateElected,
+			int electoralVotesMin, 
+			int electoralVotesMax, 
+			int popularVotesMin, 
+			int popularVotesMax,
+			int ratingPointsMin, 
+			int ratingPointsMax,
+			String party, 
+			String occupation, 
+			String college, 
+			String electoralPercentageMin,
+			String electoralPercentageMax, 
+			String popularPercentageMin, String popularPercentageMax) {
 
-		this.presList = presList;
 
 		if (rangeYearMin != 0 && rangeYearMax != 0)
 			getDateRange(rangeYearMin, rangeYearMax);
@@ -133,5 +153,12 @@ public class Filter {
 				iterator.remove();
 			}
 		}
+	}	public President getPresident(int presNum) {
+		this.presNum = presNum;
+		return presList.get(presNum);
+	}
+
+	public List<President> getAllPresidents() {
+		return presList;
 	}
 }
