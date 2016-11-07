@@ -19,7 +19,7 @@
 		</div>
 		
 		<form action="index.do" method="GET">
-			Term Number: <input type="text" name="presNum" value="${TermNum}"><br />
+			Index Number: <input type="text" name="presNum" value="${TermNum}"><br />
 			<button class="button" name="submit" value="userInput">Submit</button>
 			<div id="photo">
 				<img src="${President.allPresidents[PresNum].presidentPic}" />
@@ -96,21 +96,21 @@
 		</div>
 		<div id="footer">
 			<div id="filter"><form action="index.do" method="GET">
-			Years in Office From: <input type="text" name="yearsInOfficeMin"><br />
-			Years in Office To:<input type="text" name="yearsInOfficeMax"><br />
+			Years in Office (min): <input type="text" name="yearsInOfficeMin"><br />
+			Years in Office (max):<input type="text" name="yearsInOfficeMax"><br />
 			Presidents from Year:<input type="text" name="rangeYearMin"><br />
 			Presidents to Year:<input type="text" name="rangeYearMax"><br />
-			President age from:<input type="text" name="ageAtInAugMin"><br />
-			President age to:<input type="text" name="ageAtInAugMax"><br />
+			President age (min):<input type="text" name="ageAtInAugMin"><br />
+			President age (max):<input type="text" name="ageAtInAugMax"><br />
 			State Elected:<select>
 							<c:forEach var="states" items="${statesMenu}">
 								<option value="${states}">${states}</option>
 							</c:forEach>
 						  </select><br />
-			Electoral Votes from:<input type="text" name="totalElectoralVotesMin"><br />
-			Electoral Votes to:<input type="text" name="totalElectoralVotesMax"><br />
-			Rating Points from:<input type="text" name="ratingPointsMin"><br />
-			Rating Points to:<input type="text" name="ratingPointsMax"><br />
+			Electoral Votes (min):<input type="text" name="totalElectoralVotesMin"><br />
+			Electoral Votes (max):<input type="text" name="totalElectoralVotesMax"><br />
+			Rating Points (min):<input type="text" name="ratingPointsMin"><br />
+			Rating Points (max):<input type="text" name="ratingPointsMax"><br />
 			Federalist <input type="radio"  name="party" value="federalist">
 			Democratic-Republican<input type="radio"  name="party" value="democratic-Republican">
 			Republican <input type="radio"  name="party" value="republican">
